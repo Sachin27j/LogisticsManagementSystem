@@ -1,0 +1,24 @@
+﻿@model ProjectMain.Models.Material
+@{
+    ViewBag.Title = "MaterialForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Please Fill In The Details</h2>
+@using (Html.BeginForm("Save", "Material"))
+{
+    //@Html.ValidationSummary();
+    <div class="form-group">
+        @Html.LabelFor(m => m.Name)
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Name)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Value)
+        @Html.TextBoxFor(m => m.Value, new { @class = "form-control"})
+        @Html.ValidationMessageFor(m => m.Value)
+    </div>
+    @Html.HiddenFor(m => m.Id)
+    @Html.AntiForgeryToken();
+    <button type="submit" class="btn btn-primary">Submit</button>
+}
+

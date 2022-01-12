@@ -1,0 +1,33 @@
+﻿@model IEnumerable<ProjectMain.Models.Customer>
+
+@{
+    ViewBag.Title = "Customers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Customers</h2>
+@Html.ActionLink("New Customer", "New", "Customer", null, new { @class = "btn btn-primary" })
+@if (!Model.Any())
+{
+    <p style="color:red;font-weight:bold;font-style:italic"> Sorry , No Customers yet!</p>
+}
+else
+{
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Customer</th>
+                <th>Phone Number</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var cust in Model)
+            {
+                <tr>
+                    <td>@cust.Name</td>
+                    <td>@cust.Phone_No</td>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+}

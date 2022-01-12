@@ -1,0 +1,35 @@
+﻿@model IEnumerable<ProjectMain.Models.Vehicle>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Vehicle Details</h2>
+@Html.ActionLink("New Vehicle", "New", "Vehicle", null, new { @class = "btn btn-primary" })
+@if (!Model.Any())
+{
+    <p style="color:red;font-weight:bold;font-style:italic"> Sorry , No Vehicle Details yet!</p>
+}
+else
+{
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Vehicle Type</th>
+                <th>Capacity(tons)</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var vehi in Model)
+            {
+                <tr>
+                    <td>@vehi.Type</td>
+                    <td>@vehi.Capacity</td>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+}
+
+
+

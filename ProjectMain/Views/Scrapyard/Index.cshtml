@@ -1,0 +1,35 @@
+﻿@model IEnumerable<ProjectMain.Models.Scrapyard>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Scrapyard Details</h2>
+@Html.ActionLink("New Scrapyard", "New", "Scrapyard", null, new { @class = "btn btn-primary" })
+@if (!Model.Any())
+{
+    <p style="color:red;font-weight:bold;font-style:italic"> Sorry , No Scrapyard Details yet!</p>
+}
+else
+{
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Scrapyard Owner</th>
+                <th>Location</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var scrap in Model)
+            {
+                <tr>
+                    <td>@scrap.Owner</td>
+                    <td>@scrap.Location</td>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+}
+
+
+
