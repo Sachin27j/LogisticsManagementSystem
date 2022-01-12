@@ -21,7 +21,7 @@
        #decor
        {
            position :absolute;
-           left : 400px;
+           left : 401px;
             top : 120px;
            padding-left:20px;
            height:685px;
